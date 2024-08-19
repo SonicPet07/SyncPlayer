@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Sync Controller</title>
+    <script src="https://unpkg.com/htmx.org@1.5.0"></script>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body>
+    <h1>Media Sync Controller</h1>
+
+    <!-- HTMX Buttons -->
+    <button hx-post="/toggle_play_pause" hx-swap="none">Play/Pause</button>
+    <button hx-post="/next_chapter" hx-swap="none">Next Chapter</button>
+    <button hx-post="/previous_chapter" hx-swap="none">Previous Chapter</button>
+
+    <label for="speed">Playback Speed:</label>
+    <select id="speed" name="speed" hx-post="/set_speed" hx-include="[name='speed']" hx-swap="none">
+        <option value="1">1x</option>
+        <option value="2">2x</option>
+        <option value="4">4x</option>
+        <option value="8">8x</option>
+        <option value="16">16x</option>
+        <option value="32">32x</option>
+    </select>
+
+    <!-- Include JS for Fetch API and WebSocket options -->
+    <script src="/static/js/fetch.js"></script>
+    <script src="/static/js/websocket.js"></script>
+</body>
+</html>
