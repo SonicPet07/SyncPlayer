@@ -61,8 +61,9 @@ class MediaSyncGUI:
         media_file = ""
         if with_media:
             media_file = filedialog.askopenfilename(title="Select Media File for VLC")
+        vlc_path = r"C:\Program Files\VideoLAN\VLC\vlc.exe"
         self.vlc_process = subprocess.Popen(
-            ["vlc", f"--extraintf=rc", f"--rc-host=localhost:{self.vlc_port.get()}", media_file],
+            [vlc_path, "--extraintf=rc", f"--rc-host=localhost:{self.vlc_port.get()}", media_file],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
 
@@ -72,8 +73,9 @@ class MediaSyncGUI:
         media_file = ""
         if with_media:
             media_file = filedialog.askopenfilename(title="Select Media File for MPC-HC")
+        mpc_path = r"C:\Program Files\MPC-HC\mpc-hc64.exe"
         self.mpc_hc_process = subprocess.Popen(
-            ["mpc-hc64", "/play", media_file],
+            [mpc_path, "/play", media_file],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
 
